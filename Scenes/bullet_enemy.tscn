@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://byamsr852gxge"]
+
+[ext_resource type="Script" uid="uid://casa7dn2w1cyj" path="res://Scripts/bullet_enemy.gd" id="1_mqx58"]
+[ext_resource type="Texture2D" uid="uid://d18jjhirhqkjy" path="res://Assets/Img/enemy_bullet.png" id="2_cg55a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmqr"]
+size = Vector2(3.333333, 6.333333)
+
+[node name="bullet_enemy" type="Area2D" unique_id=2066321143 groups=["Pause", "enemy"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_mqx58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632801072]
+position = Vector2(0, -0.1666669)
+shape = SubResource("RectangleShape2D_lpmqr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=743574842]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220850273]
+position = Vector2(2.3841858e-07, -1.1920929e-07)
+scale = Vector2(1.3333333, 1.2692307)
+texture = ExtResource("2_cg55a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

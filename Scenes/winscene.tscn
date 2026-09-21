@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0siqm053jkge"]
+
+[ext_resource type="Texture2D" uid="uid://c3piatddaauy8" path="res://Assets/Img/colorful-arcade-button-set-vector.png" id="1_371wj"]
+
+[node name="Winscene" type="Node2D" unique_id=1447057529]
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=455800871]
+offset_left = 29.0
+offset_top = 31.0
+offset_right = 708.0
+offset_bottom = 464.0
+color = Color(0.0041978033, 0.16959879, 0.0008406156, 1)
+
+[node name="ArasDelMar" type="Label" parent="." unique_id=1617427753]
+offset_left = 92.0
+offset_top = 132.0
+offset_right = 514.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 40
+text = "Ganaste :D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pressCoin" type="Label" parent="." unique_id=421550247]
+offset_left = 32.0
+offset_top = 272.0
+offset_right = 576.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 30
+text = "Presiona        
+para volver al menú"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blue button" type="Sprite2D" parent="." unique_id=431320534]
+position = Vector2(365, 315.00003)
+scale = Vector2(0.15224357, 0.13110748)
+texture = ExtResource("1_371wj")
+region_enabled = true
+region_rect = Rect2(188.28748, 345.8852, 300.76202, 275.6985)

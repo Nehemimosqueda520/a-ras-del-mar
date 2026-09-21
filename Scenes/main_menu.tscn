@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ba57bwctdrn7h"]
+
+[ext_resource type="Texture2D" uid="uid://c3piatddaauy8" path="res://Assets/Img/colorful-arcade-button-set-vector.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://biduy33fdh7l6" path="res://Assets/Img/Mapa de controles.png" id="2_48xlc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48xlc"]
+atlas = ExtResource("2_48xlc")
+region = Rect2(0, 0, 512, 292)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ehe0"]
+atlas = ExtResource("2_48xlc")
+region = Rect2(0, 292, 512, 292)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ce3w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48xlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ehe0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="mainMenu" type="Node2D" unique_id=1734793450]
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=228749203]
+offset_left = 29.0
+offset_top = 31.0
+offset_right = 707.0
+offset_bottom = 464.0
+color = Color(0.0009422463, 0.037960608, 0.004692417, 1)
+
+[node name="ArasDelMar" type="Label" parent="." unique_id=2057750840]
+offset_top = 25.0
+offset_right = 422.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 40
+text = "A Ras Del Mar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pressCoin" type="Label" parent="." unique_id=1545040017]
+offset_left = 9.0
+offset_top = 323.0
+offset_right = 553.0
+offset_bottom = 447.0
+theme_override_font_sizes/font_size = 30
+text = "Presiona      para iniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blue button" type="Sprite2D" parent="." unique_id=123906771]
+position = Vector2(262.00003, 389)
+scale = Vector2(0.15224357, 0.13110748)
+texture = ExtResource("1_28flt")
+region_enabled = true
+region_rect = Rect2(192.46472, 345.8852, 288.2303, 275.6985)
+
+[node name="MapaDeControles" type="AnimatedSprite2D" parent="." unique_id=1185530219]
+position = Vector2(287, 234.99998)
+scale = Vector2(0.765625, 0.7705479)
+sprite_frames = SubResource("SpriteFrames_ce3w2")
+autoplay = "default"

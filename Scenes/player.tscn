@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dgcgsxu7lui88"]
+
+[ext_resource type="Script" uid="uid://7q10muxnarku" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://idovv7pw0s6i" path="res://Assets/Img/player.png" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://cpcrlg7jsh2pg" path="res://Assets/Audio/Ira matera.mp3" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://dkiljq0ccy1lj" path="res://Assets/Audio/shot.mp3" id="4_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://cu8sn5jao5ox6" path="res://Assets/Audio/hardShot.mp3" id="5_3smsa"]
+
+[node name="Player" type="CharacterBody2D" unique_id=653673202 groups=["Pause", "player"]]
+scale = Vector2(0.7, 0.7)
+motion_mode = 1
+script = ExtResource("1_v0iea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1475747669]
+position = Vector2(-2, -4)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-44, 56, 4, 60, 56, 56, 4, -48)
+
+[node name="Bullet_point" type="Node2D" parent="." unique_id=349798723]
+position = Vector2(-14, 4)
+
+[node name="hard_shoot_time" type="Timer" parent="." unique_id=973708989]
+wait_time = 10.0
+one_shot = true
+
+[node name="soft_shoot_time" type="Timer" parent="." unique_id=2137551859]
+wait_time = 0.1
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1252684789]
+texture = ExtResource("2_cvnsp")
+
+[node name="Bullet_point2" type="Node2D" parent="." unique_id=2144410618]
+position = Vector2(14, 4)
+
+[node name="Hard_bullet_point" type="Node2D" parent="." unique_id=1195704798]
+position = Vector2(0, -22)
+
+[node name="ira_matera_time" type="Timer" parent="." unique_id=938190119]
+wait_time = 20.0
+one_shot = true
+
+[node name="Ira_matera_duration" type="Timer" parent="." unique_id=586808321]
+wait_time = 10.0
+
+[node name="iraMateraFX" type="AudioStreamPlayer" parent="." unique_id=1741098807]
+stream = ExtResource("3_6t5aa")
+volume_db = -16.0
+
+[node name="shotFX" type="AudioStreamPlayer" parent="." unique_id=1006081490]
+stream = ExtResource("4_x3wgy")
+volume_db = -16.0
+
+[node name="hardShotFX" type="AudioStreamPlayer" parent="." unique_id=858508922]
+stream = ExtResource("5_3smsa")
+volume_db = -16.0
+
+[connection signal="timeout" from="hard_shoot_time" to="." method="_on_hard_shoot_time_timeout"]
+[connection signal="timeout" from="soft_shoot_time" to="." method="_on_soft_shoot_time_timeout"]
+[connection signal="timeout" from="ira_matera_time" to="." method="_on_ira_matera_time_timeout"]
+[connection signal="timeout" from="Ira_matera_duration" to="." method="_on_ira_matera_duration_timeout"]

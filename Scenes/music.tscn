@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cbqge0hrcgixh"]
+
+[ext_resource type="AudioStream" uid="uid://vd3lkvai2vek" path="res://Assets/Audio/MainSong.mp3" id="1_fbmny"]
+[ext_resource type="Script" uid="uid://du8rcld58e524" path="res://Scripts/music.gd" id="1_qxpp0"]
+
+[node name="music" type="Node2D" unique_id=46271895]
+script = ExtResource("1_qxpp0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1554347537]
+stream = ExtResource("1_fbmny")
+volume_db = -16.0
+autoplay = true
+parameters/looping = true

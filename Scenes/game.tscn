@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bgd0ucrny20ll"]
+
+[ext_resource type="Script" uid="uid://dt3866ef2vngw" path="res://Scripts/level.gd" id="1_ebmjs"]
+[ext_resource type="Shader" uid="uid://61q26iuiwijh" path="res://Scripts/retroScreen.gdshader" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://c3piatddaauy8" path="res://Assets/Img/colorful-arcade-button-set-vector.png" id="3_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://chmr7tmheso4j" path="res://Assets/Img/PantallaBordesCurvos.png" id="3_v158k"]
+[ext_resource type="PackedScene" uid="uid://dgcgsxu7lui88" path="res://Scenes/player.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://c1r03me70yy0y" path="res://Scenes/lose_scene.tscn" id="4_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://ba57bwctdrn7h" path="res://Scenes/main_menu.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://bj1orqr222nsd" path="res://Scenes/barrier.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dk7ll7pj4gwxq" path="res://Scenes/enemy_spawner.tscn" id="7_v158k"]
+[ext_resource type="Texture2D" uid="uid://bx0qtv1u8s5mj" path="res://Assets/Img/Fondo.png" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://di7ocifln4r6g" path="res://Scenes/enemy.tscn" id="10_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://b5uxmxlhlco04" path="res://Assets/Audio/GameOver.mp3" id="12_rku1e"]
+[ext_resource type="PackedScene" uid="uid://b0siqm053jkge" path="res://Scenes/winscene.tscn" id="13_rfjv2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qxrlw"]
+shader = ExtResource("2_qxrlw")
+shader_parameter/scanline_count = 397.8250188966875
+shader_parameter/chromatic_aberration_amount = 1.3450000638875
+
+[node name="Game" type="Node2D" unique_id=2042743049]
+script = ExtResource("1_ebmjs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=937160448]
+process_mode = 3
+layer = 100
+
+[node name="Retro_filter" type="ColorRect" parent="CanvasLayer" unique_id=656295790]
+material = SubResource("ShaderMaterial_qxrlw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = -167.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.2825842)
+
+[node name="PantallaBordesCurvos" type="Sprite2D" parent="CanvasLayer" unique_id=557132825]
+position = Vector2(360, 240)
+scale = Vector2(1.0041667, 1)
+texture = ExtResource("3_v158k")
+
+[node name="loseScene" parent="." unique_id=1933294138 instance=ExtResource("4_h4fw4")]
+visible = false
+z_index = 400
+position = Vector2(-5, -19)
+
+[node name="mainMenu" parent="." unique_id=1734793450 instance=ExtResource("4_wowpa")]
+z_index = 300
+position = Vector2(-2, -2)
+
+[node name="EnemySpawner" parent="." unique_id=1073362185 instance=ExtResource("7_v158k")]
+z_index = 1000
+position = Vector2(308, 252)
+
+[node name="Player" parent="." unique_id=653673202 instance=ExtResource("3_wrm1d")]
+position = Vector2(211, 404)
+
+[node name="barrier" parent="." unique_id=1297886924 instance=ExtResource("7_1l0tm")]
+position = Vector2(283, 436)
+
+[node name="barrier2" parent="." unique_id=1638869694 instance=ExtResource("7_1l0tm")]
+position = Vector2(549, 345)
+rotation = -1.5707964
+
+[node name="barrier3" parent="." unique_id=1473765222 instance=ExtResource("7_1l0tm")]
+position = Vector2(298, 38)
+rotation = 3.1415927
+
+[node name="barrier4" parent="." unique_id=116208194 instance=ExtResource("7_1l0tm")]
+position = Vector2(34, 243)
+rotation = 1.5707964
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1162909276]
+z_index = -1000
+position = Vector2(336, 248.5)
+scale = Vector2(1.1294851, 1.2194571)
+texture = ExtResource("8_v158k")
+
+[node name="Enemy" parent="." unique_id=578352373 instance=ExtResource("10_ldgsr")]
+position = Vector2(297, 52)
+
+[node name="buttonIraMatera" type="Sprite2D" parent="." unique_id=864017271]
+position = Vector2(624, 92)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_o5yvi")
+region_enabled = true
+region_rect = Rect2(200.81921, 70.18666, 267.34406, 258.98956)
+
+[node name="ColorRect" type="ColorRect" parent="buttonIraMatera" unique_id=1564955761]
+offset_left = -123.33333
+offset_top = -116.666664
+offset_right = 120.000046
+offset_bottom = 116.66668
+color = Color(0, 0, 0, 0.5686275)
+metadata/_edit_use_anchors_ = true
+
+[node name="buttonBigShot" type="Sprite2D" parent="." unique_id=1234126951]
+position = Vector2(627, 190)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_o5yvi")
+region_enabled = true
+region_rect = Rect2(196.64197, 345.8852, 284.05304, 279.87573)
+
+[node name="ColorRect" type="ColorRect" parent="buttonBigShot" unique_id=1908966499]
+offset_left = -123.33333
+offset_top = -123.33333
+offset_right = 126.66655
+offset_bottom = 126.66667
+color = Color(0, 0, 0, 0.5529412)
+metadata/_edit_use_anchors_ = true
+
+[node name="gameOverFX" type="AudioStreamPlayer" parent="." unique_id=1618841572]
+stream = ExtResource("12_rku1e")
+volume_db = -16.0
+
+[node name="GameTimer" type="Timer" parent="." unique_id=367424794]
+wait_time = 60.0
+one_shot = true
+
+[node name="Winscene" parent="." unique_id=1447057529 instance=ExtResource("13_rfjv2")]
+visible = false
+z_index = 400
+position = Vector2(5, -2)
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

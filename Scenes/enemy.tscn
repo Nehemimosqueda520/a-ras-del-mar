@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://di7ocifln4r6g"]
+
+[ext_resource type="Script" uid="uid://351xrfch1h7h" path="res://Scripts/enemy.gd" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://dk3eddu03vvj7" path="res://Assets/Img/enemy.png" id="2_1f0kj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
+size = Vector2(57.000004, 52.999996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
+size = Vector2(52.000004, 48.499996)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=578352373 groups=["Pause", "enemy"]]
+rotation = 3.1415927
+script = ExtResource("1_hghv2")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=2142813021 groups=["Pause"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=155742279]
+position = Vector2(-4.371139e-07, -5)
+rotation = -3.1415925
+texture = ExtResource("2_1f0kj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=250749512]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1572291029]
+position = Vector2(-0.49999934, -3.500001)
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=568308571]
+position = Vector2(-1.000001, -3)
+shape = SubResource("RectangleShape2D_afpow")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

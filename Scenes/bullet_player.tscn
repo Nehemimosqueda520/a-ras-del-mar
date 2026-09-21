@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bpa0vrucg14wl"]
+
+[ext_resource type="Script" uid="uid://cjrudk771a1ok" path="res://Scripts/bullet_player.gd" id="1_s5lyr"]
+[ext_resource type="Texture2D" uid="uid://uirmenou6368" path="res://Assets/Img/player_bullet.png" id="2_4qi73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmqr"]
+size = Vector2(27.583332, 32.666664)
+
+[node name="bullet_player" type="Area2D" unique_id=2066321143]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_s5lyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632801072]
+position = Vector2(-0.4583335, 0.33333305)
+shape = SubResource("RectangleShape2D_lpmqr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=743574842]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384371387]
+scale = Vector2(2.9583328, 2.154762)
+texture = ExtResource("2_4qi73")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
