@@ -1,9 +1,12 @@
 extends Node2D
 @onready var MainMenu:Node2D = $mainMenu
+@onready var progressBar: ProgressBar = $ProgressBar
 
 
 func _process(_delta: float) -> void:
 	Global.pauseGame()
+	
+	progressBar.value = Global.health
 	
 	if Input.is_action_just_pressed("Yellow") and Global.isPaused == true:
 		$GameTimer.start()

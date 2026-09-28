@@ -19,6 +19,12 @@ shader = ExtResource("2_qxrlw")
 shader_parameter/scanline_count = 397.8250188966875
 shader_parameter/chromatic_aberration_amount = 1.3450000638875
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfjv2"]
+bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.16078432)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1phco"]
+bg_color = Color(0.20633942, 0.33590528, 0.16314948, 1)
+
 [node name="Game" type="Node2D" unique_id=2042743049]
 script = ExtResource("1_ebmjs")
 
@@ -126,5 +132,18 @@ one_shot = true
 visible = false
 z_index = 400
 position = Vector2(5, -2)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=958385009]
+offset_left = 606.0
+offset_top = 409.0
+offset_right = 755.0
+offset_bottom = 445.0
+rotation = -1.5707964
+theme_override_colors/font_color = Color(0.16656464, 0.27315307, 0.06219738, 1)
+theme_override_colors/font_outline_color = Color(0, 0.7176471, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_rfjv2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1phco")
+value = 50.0
+show_percentage = false
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

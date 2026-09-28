@@ -32,10 +32,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("blue") and can_shoot:
 		soft_shoot()
 		
-	if Input.is_action_just_pressed("Yellow") and hard_can_shoot:
+	if Input.is_action_just_pressed("Red") and hard_can_shoot:
 		hard_shoot()
 		
-	if Input.is_action_just_pressed("Red") and Global.ira_matera == true:
+	if Input.is_action_just_pressed("Yellow") and Global.ira_matera == true:
 		$iraMateraFX.play()
 		Sprite.texture = load("res://Assets/Img/Player_ult.png")
 		print("ira matera")
