@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://di7ocifln4r6g" path="res://Scenes/enemy.tscn" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://b5uxmxlhlco04" path="res://Assets/Audio/GameOver.mp3" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://b0siqm053jkge" path="res://Scenes/winscene.tscn" id="13_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://ccogb21fbujuj" path="res://Assets/Img/Barra_vida.png" id="14_1phco"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxrlw"]
 shader = ExtResource("2_qxrlw")
@@ -95,7 +96,7 @@ position = Vector2(624, 92)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_o5yvi")
 region_enabled = true
-region_rect = Rect2(200.81921, 70.18666, 267.34406, 258.98956)
+region_rect = Rect2(205.0451, 352.445, 262.02753, 269.6225)
 
 [node name="ColorRect" type="ColorRect" parent="buttonIraMatera" unique_id=1564955761]
 offset_left = -123.33333
@@ -110,7 +111,7 @@ position = Vector2(627, 190)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_o5yvi")
 region_enabled = true
-region_rect = Rect2(196.64197, 345.8852, 284.05304, 279.87573)
+region_rect = Rect2(196.83087, 77.971466, 281.01508, 254.43253)
 
 [node name="ColorRect" type="ColorRect" parent="buttonBigShot" unique_id=1908966499]
 offset_left = -123.33333
@@ -134,16 +135,22 @@ z_index = 400
 position = Vector2(5, -2)
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=958385009]
-offset_left = 606.0
-offset_top = 409.0
-offset_right = 755.0
-offset_bottom = 445.0
+offset_left = 602.0
+offset_top = 414.0
+offset_right = 751.0
+offset_bottom = 450.0
 rotation = -1.5707964
+size_flags_stretch_ratio = 10.0
 theme_override_colors/font_color = Color(0.16656464, 0.27315307, 0.06219738, 1)
 theme_override_colors/font_outline_color = Color(0, 0.7176471, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_rfjv2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1phco")
-value = 50.0
+value = 100.0
 show_percentage = false
+
+[node name="BarraVida" type="Sprite2D" parent="." unique_id=1986381291]
+position = Vector2(621.5, 338.50003)
+scale = Vector2(1.1458335, 0.9345238)
+texture = ExtResource("14_1phco")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
