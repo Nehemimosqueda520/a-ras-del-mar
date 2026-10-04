@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene = preload("res://Scenes/enemy.tscn")
-@export var min_time: float = 0.0
-@export var max_time: float = 3.0
+@export var min_time: float = 2.0
+@export var max_time: float = 4.0
 
 @onready var spawn_timer: Timer = $SpawnTimer
 

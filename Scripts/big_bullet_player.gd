@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var speed = 90.0
+@export var speed = 300.0
 
 func _physics_process(delta: float) -> void:
-	position += Vector2.UP * 90 * delta
+	position += Vector2.UP * speed * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

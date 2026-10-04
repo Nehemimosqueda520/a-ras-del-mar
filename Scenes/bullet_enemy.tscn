@@ -15,10 +15,10 @@ position = Vector2(0, -0.1666669)
 shape = SubResource("RectangleShape2D_lpmqr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=743574842]
+scale = Vector2(0.6070628, 1.0935123)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=220850273]
-position = Vector2(2.3841858e-07, -1.1920929e-07)
-scale = Vector2(1.3333333, 1.2692307)
+scale = Vector2(0.66666657, 1.2692307)
 texture = ExtResource("2_cg55a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

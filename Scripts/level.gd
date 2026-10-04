@@ -19,8 +19,10 @@ func _process(_delta: float) -> void:
 		Global.lost = false
 	
 	if Global.lost == true:
+		$GameTimer.stop()
 		Global.isPaused = true
 		$loseScene.visible = true
+		
 		Global.health = 100
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			enemy.queue_free()

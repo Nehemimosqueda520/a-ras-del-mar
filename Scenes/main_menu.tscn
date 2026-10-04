@@ -32,7 +32,7 @@ offset_left = 29.0
 offset_top = 31.0
 offset_right = 707.0
 offset_bottom = 464.0
-color = Color(0.0009422463, 0.037960608, 0.004692417, 1)
+color = Color(0.05221925, 0.1595242, 0.070674516, 1)
 
 [node name="ArasDelMar" type="Label" parent="." unique_id=2057750840]
 offset_top = 25.0

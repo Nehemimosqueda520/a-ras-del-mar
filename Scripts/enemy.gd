@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var bullet: PackedScene = preload("res://Scenes/bullet_enemy.tscn")
 @export var speed: float = 1.0
 @export var health = 100
+@onready var image: Sprite2D = $Sprite2D
 
 # Margen respecto a los bordes de la pantalla (ajusta según el tamaño del sprite)
 @export var margin_x: float = 32.0 
@@ -17,7 +18,7 @@ var max_x: float = 0.0
 
 func _ready() -> void:
 	initial_position = global_position
-	sequence = randi_range(0, 3)
+	sequence = Global.sequence
 
 	# Obtenemos el ancho del Viewport para calcular los límites dinámicamente
 	var viewport_width = get_viewport_rect().size.x
@@ -44,6 +45,8 @@ func _process(delta: float) -> void:
 			
 			initial_position.y += base_descent
 			global_position = Vector2(initial_position.x + offset_x, initial_position.y + offset_y)
+			image.texture = preload("res://Assets/Img/big enemy.png")
+			health = 200
 
 		1:
 			# Patrón 1: Zig-Zag
@@ -55,6 +58,8 @@ func _process(delta: float) -> void:
 			
 			initial_position.y += base_descent
 			global_position = Vector2(initial_position.x + offset_x, initial_position.y + offset_y)
+			image.texture = preload("res://Assets/Img/little_enemy.png")
+			health = 10
 
 		2:
 			# Patrón 2: Espiral
@@ -67,13 +72,7 @@ func _process(delta: float) -> void:
 			initial_position.y += base_descent
 			global_position = Vector2(initial_position.x + offset_x, initial_position.y + offset_y)
 
-		3:
-			# Patrón 3: Sinuoso con Aceleración
-			var offset_x = sin(Time_acumulated * 4.0) * 150.0
-			var variable_descent = (sin(Time_acumulated * 3.0) + 1.2) * speed * delta
-			
-			initial_position.y += variable_descent
-			global_position = Vector2(initial_position.x + offset_x, initial_position.y)
+
 
 	# --- CONTROL DE LÍMITES EN PANTALLA ---
 	# Restringimos la posición final en X para que no se salga de min_x ni max_x

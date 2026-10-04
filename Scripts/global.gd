@@ -3,11 +3,11 @@ var isPaused:bool= true
 var health: float  = 100
 var enemy_damage: float = 10
 var enemy_bullet_damage: float = 5
-var soft_shoot_damage: float = 10
-var hard_shoot_damage: float = 30
+var soft_shoot_damage: float = 20
+var hard_shoot_damage: float = 100
 var lost: bool = false
 var ira_matera:bool = false
-
+var sequence: int = 0
 
 
 	

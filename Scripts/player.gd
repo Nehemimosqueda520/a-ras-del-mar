@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var hard_shoot_time: Timer = $hard_shoot_time
 @onready var ira_matera_time: Timer = $ira_matera_time
 @onready var Sprite: Sprite2D = $Sprite2D
+@onready var sun: Sprite2D = $"ult sun"
 var can_shoot: bool = true
 var health = 100.0
 var hard_can_shoot: bool = true
@@ -37,6 +38,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("Yellow") and Global.ira_matera == true:
 		$iraMateraFX.play()
+		toggle_sun()
 		Sprite.texture = load("res://Assets/Img/Player_ult.png")
 		print("ira matera")
 		Global.ira_matera = false
@@ -98,8 +100,13 @@ func _on_ira_matera_time_timeout() -> void:
 
 
 func _on_ira_matera_duration_timeout() -> void:
+	toggle_sun()
+	print("timeout ira matera")
 	Sprite.texture = load("res://Assets/Img/player.png")
 	Global.enemy_damage = 10
 	Global.enemy_bullet_damage = 5
 	Global.soft_shoot_damage = 10
 	Global.hard_shoot_damage = 30
+	
+func toggle_sun() -> void:
+	sun.visible = !sun.visible

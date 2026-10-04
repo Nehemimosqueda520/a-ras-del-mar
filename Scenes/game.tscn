@@ -17,8 +17,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxrlw"]
 shader = ExtResource("2_qxrlw")
-shader_parameter/scanline_count = 397.8250188966875
-shader_parameter/chromatic_aberration_amount = 1.3450000638875
+shader_parameter/scanline_count = 125.0000059375
+shader_parameter/chromatic_aberration_amount = 2.3600001121
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfjv2"]
 bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.16078432)
@@ -152,5 +152,13 @@ show_percentage = false
 position = Vector2(621.5, 338.50003)
 scale = Vector2(1.1458335, 0.9345238)
 texture = ExtResource("14_1phco")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2029795296]
+z_index = -999
+offset_left = 559.0
+offset_top = 23.0
+offset_right = 694.0
+offset_bottom = 460.0
+color = Color(0.109363966, 0.023968821, 0.0019486637, 1)
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
